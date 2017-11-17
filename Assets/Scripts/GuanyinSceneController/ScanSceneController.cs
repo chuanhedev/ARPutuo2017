@@ -436,8 +436,10 @@ namespace Guanyin
 				qifuButton.SetActive(false);
 				namePanel.SetActive (true);
 				namePanel.GetComponent<Scroll> ().Play ();
-				inputField.Select ();
-				inputField.ActivateInputField ();
+				delayCall.Call (3f, () => {
+					inputField.Select ();
+					inputField.ActivateInputField ();
+				});
 			} else if (s == ScanSceneState.AnimationAfterName) {
 				btnBack.SetActive (true);
 				namePanel.SetActive (false);

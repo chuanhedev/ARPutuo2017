@@ -33,6 +33,9 @@ public class Configuration : MonoBehaviour {
 	private string configStr;
 	private bool versionLoaded = false;
 	private bool loading = true;
+	private GameObject canvas;
+	private GameObject loadingPanel;
+	private string versionUrl;
 
 	// Use this for initialization
 	//	void Start () {
@@ -40,7 +43,13 @@ public class Configuration : MonoBehaviour {
 	//	}
 
 	void Awake(){
+		canvas = GameObject.Find ("Canvas");
 		Director.version = new Version (version);
+		GameObject versionObj = canvas.GetChildByName ("Version");
+		loadingPanel = canvas.GetChildByName ("LoadingPanel");
+		if (versionObj != null)
+			versionObj.GetComponent<Text> ().text = "v" + version;
+		
 		Director.environment = environment;
 		Configuration.instant = this;
 		if (environment == Environment.Development) {
@@ -48,6 +57,7 @@ public class Configuration : MonoBehaviour {
 		} else {
 			Request.RemoteUrl = prodRemoteUrl;
 		}
+		versionUrl = Request.RemoteUrl + "/version.xml";
 		if (!string.IsNullOrEmpty(serverVersion))
 			Request.RemoteUrl += "/" + serverVersion;
 	}
@@ -60,7 +70,7 @@ public class Configuration : MonoBehaviour {
 
 	IEnumerator readConfig ()
 	{ 
-		yield return Request.ReadRemote ("../version.xml", (str)=>{
+		yield return Request.ReadUrl (versionUrl, (str)=>{
 			Debug.Log(str);
 			XElement verXml = XDocument.Parse(str).Root;
 			Version v = new Version(Xml.Attribute(verXml, "version"));
@@ -95,7 +105,7 @@ public class Configuration : MonoBehaviour {
 
 	void Update(){
 		if (loading) {
-			int numDot = Mathf.FloorToInt (Time.frameCount / 5) % 3 + 1;
+			int numDot = Mathf.FloorToInt (Time.frameCount / 10) % 3 + 1;
 			message.text = "正在加载资源";
 			for (int i = 0; i < numDot; i++)
 				message.text += ".";
@@ -128,7 +138,10 @@ public class Configuration : MonoBehaviour {
 	}
 
 	public void InitVersionPanel(bool forceUpdate, string url){
-		OKCancelPanel panel = Director.LoadPrefab ("OKCancelPanel", GameObject.Find("Canvas")).GetComponent<OKCancelPanel>();
+		OKCancelPanel panel = Director.LoadPrefab ("OKCancelPanel", canvas).GetComponent<OKCancelPanel>();
+		if (loadingPanel != null)
+			loadingPanel.SetActive (false);
+		panel.gameObject.SetActive (true);
 		panel.autoTranslate = false;
 		//panel.gameObject.SetActive (false);
 		if (forceUpdate) {
