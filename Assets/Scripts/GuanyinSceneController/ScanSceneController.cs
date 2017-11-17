@@ -432,14 +432,7 @@ namespace Guanyin
 				GetRandomFu ();
 
 			} else if (s == ScanSceneState.EnterName) {
-				//sceneComponents["scroll"].Reset();
-				qifuButton.SetActive(false);
-				namePanel.SetActive (true);
-				namePanel.GetComponent<Scroll> ().Play ();
-				delayCall.Call (3f, () => {
-					inputField.Select ();
-					inputField.ActivateInputField ();
-				});
+				selectInputField ();
 			} else if (s == ScanSceneState.AnimationAfterName) {
 				btnBack.SetActive (true);
 				namePanel.SetActive (false);
@@ -465,7 +458,17 @@ namespace Guanyin
 		}
 
 		public void OnQifuButtonClick(){
-			UpdateState (ScanSceneState.EnterName);
+			qifuButton.SetActive(false);
+			namePanel.SetActive (true);
+			namePanel.GetComponent<Scroll> ().Play ();
+			delayCall.Call (1f, () => {
+				UpdateState (ScanSceneState.EnterName);
+			});
+		}
+
+		private void selectInputField(){
+			inputField.Select ();
+			inputField.ActivateInputField ();
 		}
 
 		public void OnBackClicked ()
@@ -495,8 +498,7 @@ namespace Guanyin
 				sceneComponents [key].Update ();
 			}
 			if ((Input.touches.Length > 0 || Input.GetMouseButtonDown (0)) && state == ScanSceneState.EnterName) {
-				Debug.Log ("Mouse Down");
-				inputField.Select ();
+				selectInputField ();
 			}
 			if (state == ScanSceneState.GuanyinMove) {
 				headLight.range = guanyin.transform.localScale.x * guanyin.transform.localScale.x * 0.0004f;
