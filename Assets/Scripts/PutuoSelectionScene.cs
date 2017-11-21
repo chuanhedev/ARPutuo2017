@@ -225,6 +225,13 @@ public class PutuoSelectionScene : MonoBehaviour
 		int idx = tabButtons.IndexOf (button);
 		if (idx == activeTabIndex)
 			return;
+
+		//hardcode if Tab2 is pressed, go to scan page directly
+		if (idx == 1) {
+			OnItemClick(selectionItems[0].GetComponent<SelectionItem>());
+			return;
+		}
+
 		activeTabIndex = idx;
 		for (int i = 0; i < tabs.Count; i++) {
 			tabs [i].SetActive (false);
