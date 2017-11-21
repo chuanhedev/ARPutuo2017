@@ -269,8 +269,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383660695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: 960, z: 0}
-  m_LocalScale: {x: 1.6875, y: 1.6875, z: 1.6875}
+  m_LocalPosition: {x: 142.5, y: 253, z: 0}
+  m_LocalScale: {x: 0.4453125, y: 0.4453125, z: 0.4453125}
   m_Children:
   - {fileID: 204669511}
   - {fileID: 1782229395}
@@ -591,13 +591,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverVersion: 1.3.0
-  version: 1.4.0
+  version: 1.4.1
   prodRemoteUrl: http://www.iyoovr.com/putuo
   devRemoteUrl: http://192.168.1.111:8080/web/yiliao/data/putuo
   language: cn
   enablePopupVideo: 1
   message: {fileID: 1104783844}
-  environment: 1
+  environment: 0
   mainColor: {r: 0, g: 0.48235294, b: 1, a: 1}
   uiGrey: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
   bg: {fileID: 1782229396}
@@ -638,7 +638,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1351716978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -568.8889, z: 0}
+  m_LocalPosition: {x: 0, y: -568.1404, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1104783843}
@@ -769,7 +769,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1698079463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -179, y: 551.0111, z: 0}
+  m_LocalPosition: {x: -179, y: 551.75964, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383660699}
@@ -843,7 +843,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1782229394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 568.8889, z: 0}
+  m_LocalPosition: {x: 0, y: 568.1404, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383660699}
