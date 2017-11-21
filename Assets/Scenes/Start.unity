@@ -597,7 +597,7 @@ MonoBehaviour:
   language: cn
   enablePopupVideo: 1
   message: {fileID: 1104783844}
-  environment: 1
+  environment: 0
   mainColor: {r: 0, g: 0.48235294, b: 1, a: 1}
   uiGrey: {r: 0.56078434, g: 0.56078434, b: 0.56078434, a: 1}
   bg: {fileID: 1782229396}
