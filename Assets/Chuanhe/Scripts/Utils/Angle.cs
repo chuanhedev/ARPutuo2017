@@ -9,4 +9,9 @@ public class Angle {
 		float temp = Utils.ModPositive(a, 360);
 		return temp > 180 ? temp - 360 : temp;
 	}
+
+	//convert angle from 0 to 360
+	public static float ToStardard2 (float a){
+		return Utils.ModPositive(a, 360);
+	}
 }

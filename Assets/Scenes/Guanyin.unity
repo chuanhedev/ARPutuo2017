@@ -5965,7 +5965,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 796222539}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.02, y: 0.16, z: -0.182}
+  m_LocalPosition: {x: 0.01, y: 0.16, z: -0.28}
   m_LocalScale: {x: 0.15, y: 0.15000007, z: 0.15000007}
   m_Children:
   - {fileID: 702645591}
@@ -6426,6 +6426,11 @@ Prefab:
         type: 2}
       propertyPath: ShapeModule.radiusThickness
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198879099955222742, guid: d9415599145504843b1b28703c4e0a30,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198879099955222742, guid: d9415599145504843b1b28703c4e0a30,
         type: 2}

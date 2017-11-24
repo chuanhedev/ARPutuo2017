@@ -53,13 +53,13 @@ public class SimpleTouchRotate : MonoBehaviour {
 		bool clamp = range > -1;
 		value = dir.Length == 1 ? value : -value;
 		if (axis == "x") {
-			float x = Angle.ToStardard (v.x) + value;
+			float x = Angle.ToStardard2 (v.x) + value;
 			return v.SetX (clamp? Mathf.Clamp(x, origRotation.x - range, origRotation.x + range): x);
 		} else if (axis == "y") {
-			float y = Angle.ToStardard (v.y) + value;
+			float y = Angle.ToStardard2 (v.y) + value;
 			return v.SetY (clamp? Mathf.Clamp(y, origRotation.y - range, origRotation.y + range): y);
 		} else {
-			float z = Angle.ToStardard (v.z) + value;
+			float z = Angle.ToStardard2 (v.z) + value;
 			return v.SetZ (clamp? Mathf.Clamp(z, origRotation.z - range, origRotation.z + range): z);
 		}
 	}
@@ -71,6 +71,8 @@ public class SimpleTouchRotate : MonoBehaviour {
 			if (!rotating) {
 				touchedObjRotation = transform.localRotation.eulerAngles;
 				touchedPosition = new Vector3(touch.position.x, touch.position.y, 0);
+				rotating = true;
+				return;
 			}
 			rotating = true;
 			float x = touch.position.x - touchedPosition.x;
@@ -105,6 +107,8 @@ public class SimpleTouchRotate : MonoBehaviour {
 			if (!rotating) {
 				touchedObjRotation = transform.localRotation.eulerAngles;
 				touchedPosition = Input.mousePosition;
+				rotating = true;
+				return;
 			}
 			rotating = true;
 
@@ -120,7 +124,6 @@ public class SimpleTouchRotate : MonoBehaviour {
 			if(rightEnabled)
 				transformedRotation = ApplyTransform(transformedRotation, rightDirection, x *.2f, horizontalRange);
 			transform.localRotation = Quaternion.Euler (transformedRotation);
-			Logger.Log (transform.localRotation.ToString());
 		} else {
 			rotating = false;
 		}

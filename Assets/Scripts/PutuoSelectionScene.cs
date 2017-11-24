@@ -48,6 +48,12 @@ public class PutuoSelectionScene : MonoBehaviour
 			tabs.Add (canvas.GetChildByNameInChildren("Tab"+i));
 			tabButtons.Add (canvas.GetChildByNameInChildren("TabButton"+i));
 		}
+		Scanner scanner = tabs [1].GetComponent<Scanner> ();
+		if (scanner!=null)
+			scanner.scanning = true;
+		GameObject version = tabs [2].GetChildByName ("Version");
+		if (version != null)
+			version.GetComponent<Text> ().text = "v" + Director.version.ToString ();
 		itemsPanel = canvas.GetChildByNameInChildren ("ItemsContainer");
 //		Debug.Log ("Start");
 //		contactUs.text = I18n.Translate("select_cooperate");
