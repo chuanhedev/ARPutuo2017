@@ -8,3 +8,4 @@
 * Assets/Plugins
 * Assets/Prefabs
 * Assets/Vuforia
+* Assets/Scenes/Guanyin
