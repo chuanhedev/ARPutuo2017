@@ -557,7 +557,7 @@ namespace Guanyin
 						//float scale = guanyin.transform.localScale.x;
 						//scale += (doubleDisChanged > 1.2f ? (doubleDisChanged - 1.2f) : (doubleDisChanged - .8f)) * 2f;
 						//scale = Mathf.Clamp (scale, origGuanyinScale / 3, origGuanyinScale * 3);
-						float s = guanyinTouchedScale * (doubleDisChanged > 1.2f ? (doubleDisChanged - .2f) : (doubleDisChanged + .2f)) * 1.4f;
+						float s = guanyinTouchedScale * Mathf.Pow((doubleDisChanged > 1.2f ? (doubleDisChanged - .2f) : (doubleDisChanged + .2f)), 1.5f);
 						guanyin.transform.localScale =  Vector3.one * Mathf.Clamp(s, origGuanyinScale*.5f, origGuanyinScale*2);
 					} else {
 						guanyin.transform.localPosition = guanyin.transform.localPosition.SetX (guanyin.transform.localPosition.x + screenTouch.doubleTouchDeltaX * .005f);
